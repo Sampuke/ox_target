@@ -11,3 +11,38 @@ To improve many design flaws, ox_target has been written from scratch and drops 
 - Improved error handling protects against soft-locking.
 - Improved entity and world collision detection.
 - Options now stack, rather than overriding.
+
+## Different Main Icon and Main Icon Color Based on Options:
+Preview: https://youtu.be/Sat_JFo1sQ0
+
+Note: once 3rd eye is active and there are multiple main icons set through exports, it uses the top/highest customizable icon from the target options index that is not hidden(based on `canInteract` property and etc)
+
+Example usage for global and entity exports:
+```lua
+ox_target:addGlobalVehicle({
+    mainIcon = 'fa-brands fa-internet-explorer',
+    mainIconColor = '#eb0546',
+    {
+        name = ...,
+        icon = ...,
+        label = ...,
+        bones = ...,
+        canInteract = ...,
+        onSelect = ...
+    }
+})
+```
+
+Example usage for zone exports:
+```lua
+ox_target:addBoxZone({
+    mainIcon = 'fa-brands fa-internet-explorer',
+    mainIconColor = '#eb0546',
+    coords = ...
+    size = ...,
+    rotation = ...,
+    debug = ...,
+    drawSprite = ...,
+    options = ...
+})
+```
